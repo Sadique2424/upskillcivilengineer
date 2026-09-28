@@ -2,99 +2,649 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Up Skill Civil Engineer | Practical Skills for Civil Engineers</title>
 <meta name="description" content="Up Skill Civil Engineer provides practical courses and resources for civil engineers, including MS Project Planning, BBS, estimation and interview preparation.">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #0B1830;
+    --navy: #10233F;
+    --steel: #1C4E80;
+    --blue: #2E90FA;
+    --orange: #FF7A1A;
+    --orange-deep: #E8590C;
+    --paper: #F4F6F9;
+    --white: #FFFFFF;
+    --ink: #10233F;
+    --slate: #4B5A70;
+    --line: #DCE3EC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.01em; color: var(--navy-deep); }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+    background: rgba(11, 24, 48, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px; max-width: 1080px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { width: 34px; height: 34px; }
+  .brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: var(--white); }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: var(--white);
+    padding: 9px 18px; border-radius: 8px;
+    font-weight: 600; font-size: 14px;
+    transition: background 0.15s ease;
+  }
+  .wa-btn:hover { background: var(--orange-deep); }
+  .wa-btn.ghost {
+    background: transparent; border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
+  }
+  .wa-btn.ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, var(--steel) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at 75% 40%, black 0%, transparent 65%);
+  }
+  .hero-inner {
+    position: relative;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;
+    padding: 88px 24px 96px; max-width: 1080px; margin: 0 auto;
+  }
+  @media (max-width: 800px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 56px 24px 64px; }
+  }
+  .eyebrow-line {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+  }
+  .eyebrow-line .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  .eyebrow-line span { color: #AFC2DC; font-size: 13.5px; font-weight: 500; }
+  .hero h1 {
+    font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; color: var(--white); margin-bottom: 20px;
+  }
+  .hero p.lead {
+    color: #C6D3E5; font-size: 16.5px; line-height: 1.65; max-width: 46ch; margin-bottom: 32px;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-badge-inner {
+    background: var(--white); border-radius: 16px; padding: 28px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-badge img { width: 100%; max-width: 220px; }
+
+  /* ---------- career comparison ---------- */
+  .compare {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: stretch;
+  }
+  @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+  .compare-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--orange); font-size: 22px;
+  }
+  @media (max-width: 760px) { .compare-arrow { transform: rotate(90deg); padding: 4px 0; } }
+  .compare-card {
+    border-radius: 16px; padding: 30px 28px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .compare-card.before { background: #EDF0F4; border: 1px solid var(--line); }
+  .compare-card.after { background: var(--navy-deep); color: var(--white); }
+  .compare-role {
+    display: inline-flex; align-self: flex-start;
+    font-size: 12.5px; font-weight: 600; padding: 5px 12px; border-radius: 6px;
+  }
+  .compare-card.before .compare-role { background: #D9DEE6; color: var(--slate); }
+  .compare-card.after .compare-role { background: rgba(255,122,26,0.18); color: var(--orange); }
+  .compare-card h3 { font-size: 20px; }
+  .compare-card.after h3 { color: var(--white); }
+  .compare-stat { display: flex; align-items: baseline; gap: 8px; }
+  .compare-stat .num { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; }
+  .compare-card.before .num { color: var(--navy-deep); }
+  .compare-card.after .num { color: var(--orange); }
+  .compare-stat .unit { font-size: 13px; color: var(--slate); }
+  .compare-card.after .compare-stat .unit { color: #AFC2DC; }
+  .compare-list { list-style: none; display: grid; gap: 9px; font-size: 14px; }
+  .compare-list li { display: flex; gap: 9px; align-items: flex-start; }
+  .compare-card.before .compare-list li::before { content: '−'; color: #97A2B2; font-weight: 700; }
+  .compare-card.after .compare-list li::before { content: '✓'; color: var(--orange); font-weight: 700; }
+  .compare-card.before .compare-list li { color: var(--slate); }
+  .compare-card.after .compare-list li { color: #DCE6F2; }
+
+  .demand-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    margin-top: 22px;
+  }
+  @media (max-width: 700px) { .demand-strip { grid-template-columns: 1fr 1fr; } }
+  .demand-item { background: var(--white); padding: 22px 18px; text-align: center; }
+  .demand-item .num { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--steel); }
+  .demand-item .lbl { font-size: 12.5px; color: var(--slate); margin-top: 4px; }
+
+  /* ---------- trust badges + pills ---------- */
+  .trust-row {
+    display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 28px;
+  }
+  .trust-row span { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #C6D3E5; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .pill {
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    color: #DCE6F2; font-size: 13px; padding: 8px 14px; border-radius: 20px;
+  }
+
+  /* ---------- stats bar ---------- */
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--navy-deep);
+  }
+  @media (max-width: 700px) { .stats-bar { grid-template-columns: 1fr 1fr; } }
+  .stat-item { padding: 30px 18px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:last-child { border-right: none; }
+  @media (max-width: 700px) { .stat-item:nth-child(2n) { border-right: none; } }
+  .stat-item .num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--orange); }
+  .stat-item .lbl { font-size: 12.5px; color: #AFC2DC; margin-top: 4px; }
+
+  /* ---------- support cards ---------- */
+  .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 800px) { .support-grid { grid-template-columns: 1fr; } }
+  .support-card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 26px;
+  }
+  .support-card .tag {
+    display: inline-block; font-size: 11.5px; font-weight: 600; color: var(--orange);
+    background: #FFF1E6; padding: 4px 10px; border-radius: 6px; margin-bottom: 14px;
+  }
+  .support-card .ic { font-size: 26px; margin-bottom: 12px; }
+  .support-card h3 { font-size: 16px; margin-bottom: 8px; }
+  .support-card p { font-size: 13.8px; color: var(--slate); line-height: 1.55; }
+
+  /* ---------- price offer ---------- */
+  .urgency {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #FFF1E6; color: var(--orange-deep); font-size: 12.5px; font-weight: 600;
+    padding: 6px 12px; border-radius: 20px; margin-bottom: 14px;
+  }
+  .price-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .price-strike { color: #91A5C2; text-decoration: line-through; font-size: 17px; }
+  .price-off { color: var(--orange); font-size: 13px; font-weight: 600; }
+
+  /* ---------- testimonials ---------- */
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 800px) { .testimonial-grid { grid-template-columns: 1fr; } }
+  .testimonial-card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 26px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .stars { color: var(--orange); font-size: 13px; letter-spacing: 2px; }
+  .testimonial-card p.quote { font-size: 14px; color: var(--ink); line-height: 1.6; flex-grow: 1; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--steel)); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px;
+  }
+  .testimonial-author .name { font-size: 13.5px; font-weight: 600; color: var(--navy-deep); }
+  .testimonial-author .role { font-size: 12px; color: var(--slate); }
+
+  /* ---------- section shell ---------- */
+  section { padding: 76px 0; }
+  .section-head { max-width: 56ch; margin-bottom: 44px; }
+  .section-head h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 12px; }
+  .section-head p { color: var(--slate); font-size: 15.5px; line-height: 1.6; }
+
+  /* ---------- what you get ---------- */
+  .features {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    background: var(--white);
+  }
+  @media (max-width: 700px) { .features { grid-template-columns: 1fr; } }
+  .feature {
+    padding: 26px 28px;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .features .feature:nth-child(2n) { border-right: none; }
+  @media (max-width: 700px) { .feature { border-right: none !important; } }
+  .feature:nth-last-child(-n+2) { border-bottom: none; }
+  .feature-icon {
+    width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--steel));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px;
+  }
+  .feature h3 { font-size: 15.5px; margin-bottom: 5px; }
+  .feature p { color: var(--slate); font-size: 13.8px; line-height: 1.55; }
+
+  /* ---------- course card ---------- */
+  .course {
+    background: var(--white);
+    border: 1px solid var(--line); border-radius: 18px;
+    overflow: hidden;
+    display: grid; grid-template-columns: 1fr 320px;
+  }
+  @media (max-width: 760px) { .course { grid-template-columns: 1fr; } }
+  .course-body { padding: 40px; }
+  .course-tag {
+    display: inline-block; background: #EAF2FF; color: var(--steel);
+    font-size: 12.5px; font-weight: 600; padding: 5px 12px; border-radius: 6px; margin-bottom: 16px;
+  }
+  .course-body h3 { font-size: 24px; margin-bottom: 10px; }
+  .course-body > p { color: var(--slate); font-size: 14.5px; margin-bottom: 22px; }
+  .checklist { list-style: none; display: grid; gap: 10px; }
+  .checklist li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: var(--ink); }
+  .checklist li::before {
+    content: '✓'; color: var(--orange); font-weight: 700; flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%; background: #FFF1E6;
+    display: flex; align-items: center; justify-content: center; font-size: 12px;
+  }
+  .course-price {
+    background: var(--navy-deep); color: var(--white);
+    padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; gap: 18px;
+  }
+  .price-label { color: #AFC2DC; font-size: 13px; }
+  .price-value { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; }
+  .price-value span { font-size: 15px; color: #AFC2DC; font-weight: 500; margin-left: 6px; }
+  .course-price .wa-btn { justify-content: center; width: 100%; }
+  .price-note { font-size: 12.5px; color: #91A5C2; }
+
+  /* ---------- whatsapp channel banner ---------- */
+  .channel {
+    background: linear-gradient(135deg, var(--navy-deep), var(--steel));
+    border-radius: 18px;
+    padding: 44px;
+    display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center;
+  }
+  @media (max-width: 760px) {
+    .channel { grid-template-columns: 1fr; text-align: left; }
+  }
+  .channel-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+  }
+  .channel h3 { color: var(--white); font-size: 20px; margin-bottom: 8px; }
+  .channel p { color: #C6D3E5; font-size: 14.5px; line-height: 1.6; max-width: 52ch; }
+
+  /* ---------- contact ---------- */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px 28px;
+  }
+  .contact-card .label { font-size: 13px; color: var(--slate); margin-bottom: 6px; }
+  .contact-card .value { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 19px; color: var(--navy-deep); }
+  .contact-card a.value:hover { color: var(--steel); }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--navy-deep); color: #91A5C2;
+    padding: 40px 0 28px;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-brand img { width: 26px; height: 26px; }
+  .footer-brand span { color: var(--white); font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14.5px; }
+  .footer-links { display: flex; gap: 20px; font-size: 13.5px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    margin-top: 22px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 12.5px; color: #6E82A0;
+  }
+</style>
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#home"><span class="brand-mark">US</span><span>Up Skill <b>Civil Engineer</b></span></a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#course">Course</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="nav-btn" href="#course">View Course</a>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Up Skill Civil Engineer logo">
+      <span>Up Skill Civil Engineer</span>
+    </div>
+    <a class="wa-btn" href="https://wa.me/917698819690" target="_blank" rel="noopener">Message on WhatsApp</a>
+  </div>
 </header>
 
-<main>
-<section class="hero" id="home">
-  <div class="hero-copy">
-    <div class="eyebrow">PRACTICAL SKILLS • CIVIL ENGINEERING</div>
-    <h1>Build Skills.<br><span>Build Your Career.</span></h1>
-    <p>Practical learning for civil engineers who want to move from site execution towards planning and professional project management.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#course">Explore Course</a>
-      <a class="btn secondary" href="#about">Learn About Us</a>
-    </div>
-    <div class="trust-row"><span>✓ Practical Learning</span><span>✓ Civil Engineering Focus</span><span>✓ Career Oriented</span></div>
-  </div>
-  <div class="hero-card">
-    <div class="card-top">FEATURED COURSE</div>
-    <div class="course-icon">MS</div>
-    <h3>Master MS Project<br>for Civil Engineers</h3>
-    <p>Learn project scheduling, progress tracking and planning fundamentals.</p>
-    <div class="price"><small>Limited Offer</small><strong>₹499</strong></div>
-    <a class="btn primary wide" href="#course">View Course Details</a>
-  </div>
-</section>
-
-<section class="section intro" id="about">
-  <div class="section-label">ABOUT US</div>
-  <h2>Up Skill Civil Engineer</h2>
-  <p class="lead">A learning platform focused on practical, job-oriented skills for civil engineering professionals.</p>
-  <div class="feature-grid">
-    <div><span>01</span><h3>Practical</h3><p>Learn concepts that connect directly with real construction and infrastructure projects.</p></div>
-    <div><span>02</span><h3>Career Focused</h3><p>Build skills that support your transition into planning and project-control roles.</p></div>
-    <div><span>03</span><h3>Simple Learning</h3><p>Clear explanations designed for engineers who want useful skills without unnecessary complexity.</p></div>
-  </div>
-</section>
-
-<section class="section course-section" id="course">
-  <div class="section-label">FEATURED COURSE</div>
-  <div class="course-layout">
+<section class="hero">
+  <div class="hero-inner">
     <div>
-      <h2>Master MS Project for Civil Engineers</h2>
-      <p class="lead">Learn the fundamentals of construction project planning using Microsoft Project.</p>
-      <div class="offer"><span>LIMITED OFFER</span><strong>₹499</strong></div>
-      <a class="btn primary" href="#contact">Enquire / Join</a>
+      <div class="eyebrow-line"><span class="dot"></span><span>Practical skills · Civil engineering</span></div>
+      <h1>Build skills. Build your career.</h1>
+      <p class="lead">Practical learning for civil engineers who want to move from site execution towards planning and professional project management.</p>
+      <div class="trust-row">
+        <span>✅ 500+ Civil Engineers Trained</span>
+        <span>⭐ 4.9/5 Rating</span>
+        <span>📱 Lifetime Support</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="wa-btn" href="https://wa.me/917698819690" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="wa-btn ghost" href="#course">See what's included</a>
+      </div>
+      <div class="pill-row">
+        <span class="pill">💬 Interview Q&amp;A</span>
+        <span class="pill">📈 S-Curve</span>
+        <span class="pill">📱 WhatsApp Support</span>
+        <span class="pill">🏗️ Real Projects</span>
+        <span class="pill">📄 CV Guide</span>
+        <span class="pill">🔄 Free Updates</span>
+        <span class="pill">📐 BBS Calculator</span>
+        <span class="pill">🧮 Costing Calculator</span>
+      </div>
     </div>
-    <div class="syllabus">
-      <h3>What you get</h3>
-      <div class="item">✓ MS Project planning fundamentals</div>
-      <div class="item">✓ Project schedule creation</div>
-      <div class="item">✓ Baseline and progress tracking</div>
-      <div class="item">✓ Planned vs actual progress</div>
-      <div class="item">✓ CV update guidance for planning roles</div>
-      <div class="item">✓ BBS calculator & useful resources</div>
-      <div class="item">✓ Costing & estimation basics</div>
-      <div class="item">✓ Interview questions for Planning Engineer roles</div>
+    <div class="hero-badge">
+      <div class="hero-badge-inner">
+        <img src="logo.png" alt="Up Skill Civil Engineer">
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section why">
-  <div class="section-label">WHY UPSKILL?</div>
-  <h2>Skills that help you move forward.</h2>
-  <div class="stats"><div><strong>01</strong><p>Learn practical tools</p></div><div><strong>02</strong><p>Understand project planning</p></div><div><strong>03</strong><p>Prepare for better opportunities</p></div></div>
-</section>
+<div class="stats-bar">
+  <div class="stat-item"><div class="num">500+</div><div class="lbl">Civil Engineers Enrolled</div></div>
+  <div class="stat-item"><div class="num">4.9 ⭐</div><div class="lbl">Average Rating</div></div>
+  <div class="stat-item"><div class="num">8+</div><div class="lbl">Practical Topics</div></div>
+  <div class="stat-item"><div class="num">∞</div><div class="lbl">Lifetime Support</div></div>
+</div>
 
-<section class="section contact" id="contact">
-  <div class="section-label">CONTACT US</div>
-  <h2>Ready to upskill?</h2>
-  <p class="lead">For course details, enrollment and support, contact Up Skill Civil Engineer.</p>
-  <div class="contact-box">
-    <div><h3>Up Skill Civil Engineer</h3><p>Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p><p>WhatsApp: <a href="https://wa.me/YOURNUMBER">Chat on WhatsApp</a></p></div>
-    <a class="btn primary" href="mailto:YOUR_EMAIL@example.com?subject=MS%20Project%20Course%20Enquiry">Send Enquiry</a>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>One skill changes everything</h2>
+      <p>Civil engineers who learn MS Project and move into Planning roles see a real salary upgrade — with the same years of experience.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-card before">
+        <span class="compare-role">🦺 Civil Site Engineer</span>
+        <h3>2 years experience</h3>
+        <div class="compare-stat"><span class="num">₹20,000</span><span class="unit">per month · field work</span></div>
+        <ul class="compare-list">
+          <li>On-site field work daily</li>
+          <li>Execution &amp; supervision only</li>
+          <li>Limited growth path</li>
+        </ul>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-card after">
+        <span class="compare-role">💻 Planning Engineer</span>
+        <h3>same 2 years experience</h3>
+        <div class="compare-stat"><span class="num">₹55,000–65,000</span><span class="unit">per month · office role</span></div>
+        <ul class="compare-list">
+          <li>Project planning &amp; scheduling</li>
+          <li>Clean office / PC-based role</li>
+          <li>High demand — far more calls</li>
+        </ul>
+      </div>
+    </div>
+    <div class="demand-strip">
+      <div class="demand-item"><div class="num">~3x</div><div class="lbl">Salary growth</div></div>
+      <div class="demand-item"><div class="num">High</div><div class="lbl">Market demand</div></div>
+      <div class="demand-item"><div class="num">Office</div><div class="lbl">Based role</div></div>
+      <div class="demand-item"><div class="num">Faster</div><div class="lbl">Promotions</div></div>
+    </div>
   </div>
 </section>
-</main>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What you get for ₹499</h2>
+      <p>Everything below is included in the course: planning skills, interview preparation and two working calculators.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">CV</div>
+        <div><h3>CV rebuild for planning roles</h3><p>Rewrite your CV with the exact keywords recruiters search for.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">Q</div>
+        <div><h3>Real interview questions</h3><p>Actual Planning Engineer questions, explained with real project examples.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">MS</div>
+        <div><h3>MS Project fundamentals</h3><p>Schedule creation, baseline, and planned vs actual progress tracking.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">SC</div>
+        <div><h3>S-Curve and progress reports</h3><p>Plot planned vs actual progress and present it clearly in weekly meetings.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">BBS</div>
+        <div><h3>BBS Calculator</h3><p>Pick a bar shape, enter the size, and get the cutting length and steel weight instantly. 7 bar shapes including stirrups, with a diagram.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">₹</div>
+        <div><h3>Estimation and Costing Calculator</h3><p>Get quantities, material to purchase and total cost for buildings and infrastructure structures: excavation, PCC, RCC, brickwork, plaster, paint and steel. All rates are editable.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">10+</div>
+        <div><h3>Real project schedules</h3><p>See how planning is actually done on 10+ real construction projects.</p></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">1%</div>
+        <div><h3>Project tracking secrets</h3><p>The tracking techniques fewer than 1% of engineers are trained in.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="course">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Master MS Project for civil engineers</h2>
+      <p>Learn the fundamentals of construction project planning using Microsoft Project — from scheduling to progress tracking.</p>
+    </div>
+    <div class="course">
+      <div class="course-body">
+        <span class="course-tag">Limited offer</span>
+        <h3>Complete Planning Engineer course</h3>
+        <p>Everything you need to move from site execution into a planning role — practical, not theoretical.</p>
+        <ul class="checklist">
+          <li>MS Project planning fundamentals</li>
+          <li>Project schedule creation</li>
+          <li>Baseline and progress tracking</li>
+          <li>Planned vs actual progress (S-Curve)</li>
+          <li>CV update guidance for planning roles</li>
+          <li>Interview questions for Planning Engineer roles</li>
+          <li>BBS Calculator with 7 bar shapes</li>
+          <li>Estimation &amp; Costing Calculator for buildings and infrastructure</li>
+        </ul>
+      </div>
+      <div class="course-price">
+        <span class="urgency">⏰ Limited Offer — Price May Increase Soon</span>
+        <span class="price-label">One-time payment</span>
+        <div class="price-row">
+          <div class="price-value">₹499</div>
+          <span class="price-strike">₹2,999</span>
+          <span class="price-off">83% OFF</span>
+        </div>
+        <a class="wa-btn" href="https://wa.me/917698819690?text=Hi%2C%20I%27m%20interested%20in%20the%20MS%20Project%20course" target="_blank" rel="noopener">🚀 Enroll Now — Get Lifetime Access</a>
+        <span class="price-note">🔒 Secure · 📱 Instant Access · You'll be connected directly on WhatsApp.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Support that doesn't disappear after payment</h2>
+      <p>Most courses sell a video and vanish. Here's what you actually get with this one.</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card">
+        <span class="tag">Premium Support</span>
+        <div class="ic">📱</div>
+        <h3>WhatsApp Channel</h3>
+        <p>Join our channel for updates, tips, and direct support. Instructor personally replies, active around the clock.</p>
+      </div>
+      <div class="support-card">
+        <span class="tag">Direct Access</span>
+        <div class="ic">✉️</div>
+        <h3>Email Support</h3>
+        <p>Write anytime — CV review, interview prep, career advice. Real personal replies, not a template. Pengghelp@gmail.com</p>
+      </div>
+      <div class="support-card">
+        <span class="tag">Career Boost</span>
+        <div class="ic">📄</div>
+        <h3>Interview &amp; CV Review</h3>
+        <p>Share your CV before applying — we tell you exactly what to improve to stand out from 100 other applicants.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="channel">
+      <div class="channel-icon">📣</div>
+      <div>
+        <h3>Join our free WhatsApp Channel</h3>
+        <p>Daily posts on planning job notifications, MS Project &amp; software updates, and practical planning knowledge — free, no course purchase needed.</p>
+      </div>
+      <a class="wa-btn" href="YOUR_WHATSAPP_CHANNEL_LINK" target="_blank" rel="noopener">Join the channel</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Civil engineers who enrolled and got hired</h2>
+      <p>Real feedback from students who used this course to move into planning roles.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The S-Curve module changed everything. My interviewer asked exactly about it and I answered perfectly. Got the job offer the next day."</p>
+        <div class="testimonial-author">
+          <div class="avatar">RS</div>
+          <div><div class="name">Rahul Sharma</div><div class="role">Planning Engineer · Hyderabad</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The WhatsApp support is absolutely real. I asked at 10pm and got a detailed reply in 20 minutes. No other course does this at ₹499."</p>
+        <div class="testimonial-author">
+          <div class="avatar">PM</div>
+          <div><div class="name">Priya Mehta</div><div class="role">Graduate Engineer · Pune</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"They reviewed my CV and told me exactly what to update. Got 4 interview calls in one week after updating Naukri. Amazing support!"</p>
+        <div class="testimonial-author">
+          <div class="avatar">AK</div>
+          <div><div class="name">Arun Kumar</div><div class="role">Civil Engineer · Chennai</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I was stuck at ₹22K for 2 years doing site work. Learned MS Project from this course, and within 2 months I moved into a planning role."</p>
+        <div class="testimonial-author">
+          <div class="avatar">SV</div>
+          <div><div class="name">Suresh Verma</div><div class="role">Planning Engineer · Ahmedabad</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Very practical, not just theory. The real project examples helped me actually understand how a schedule is built and tracked on site."</p>
+        <div class="testimonial-author">
+          <div class="avatar">NP</div>
+          <div><div class="name">Neha Patel</div><div class="role">Site Engineer · Surat</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Best ₹499 I've spent. The interview questions section alone was worth it — got asked almost the exact same questions in my interview."</p>
+        <div class="testimonial-author">
+          <div class="avatar">VS</div>
+          <div><div class="name">Vikram Singh</div><div class="role">Planning Engineer · Jaipur</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ready to upskill?</h2>
+      <p>For course details, enrollment and support, reach out directly.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="label">WhatsApp</div>
+        <a class="value" href="https://wa.me/917698819690" target="_blank" rel="noopener">+91 76988 19690</a>
+      </div>
+      <div class="contact-card">
+        <div class="label">Email</div>
+        <a class="value" href="mailto:Pengghelp@gmail.com">Pengghelp@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div><b>Up Skill Civil Engineer</b><p>Practical Skills for Civil Engineers</p></div>
-  <div class="footer-links"><a href="terms.html">Terms & Conditions</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a></div>
-  <p class="copyright">© 2026 Up Skill Civil Engineer. All rights reserved.</p>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Up Skill Civil Engineer logo">
+        <span>Up Skill Civil Engineer</span>
+      </div>
+      <div class="footer-links">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Up Skill Civil Engineer. All rights reserved.</div>
+  </div>
 </footer>
+
 </body>
 </html>
