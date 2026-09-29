@@ -337,6 +337,39 @@
     font-size: 12.5px; color: #6E82A0;
   }
 </style>
+  .explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 22px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11,24,48,0.04);
+}
+.explore-btn:hover {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255,122,26,0.16);
+}
+.explore-btn-text { display: flex; flex-direction: column; gap: 2px; }
+.explore-btn-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--navy-deep);
+}
+.explore-btn-sub {
+  font-size: 12.5px;
+  color: var(--slate);
+}
+.explore-btn-arrow {
+  font-size: 20px;
+  color: var(--orange);
+  transition: transform 0.2s ease;
+}
+.explore-btn:hover .explore-btn-arrow { transform: translateX(4px); }
 </head>
 <body>
 
@@ -393,17 +426,14 @@
   <div class="stat-item"><div class="num">∞</div><div class="lbl">Lifetime Support</div></div>
 </div>
   
-<h2>Master MS Project & Construction Planning</h2>
-
-<p>
-Learn practical project scheduling, progress tracking and
-Planning Engineer skills.
-</p>
-
-<a href="planning-engineer-course.html" class="primary-btn">
-    Explore Full Course
+<a href="planning-engineer-course.html" class="explore-btn">
+  <span class="explore-btn-text">
+    <span class="explore-btn-label">Know more about what you get</span>
+    <span class="explore-btn-sub">Full syllabus, BBS &amp; Costing Calculator details</span>
+  </span>
+  <span class="explore-btn-arrow">→</span>
 </a>
-<section>
+  <section>
   <div class="wrap">
     <div class="section-head">
       <h2>One skill changes everything</h2>
