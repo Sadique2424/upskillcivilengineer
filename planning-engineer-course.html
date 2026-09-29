@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planning Engineer Course | Up Skill Civil Engineer</title>
+
+    <meta name="description"
+        content="Learn MS Project, construction planning, BBS calculation, costing & estimation, scheduling, progress tracking, S-Curve and practical Planning Engineer skills.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f9fc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e7ebf2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #102a56;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #445066;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #1264d6;
+        }
+
+        .nav-button {
+            background: #1264d6;
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 8px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background:
+                radial-gradient(circle at top right, rgba(39, 117, 232, 0.16), transparent 35%),
+                linear-gradient(135deg, #f4f8ff, #ffffff);
+            padding: 80px 0 75px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f1ff;
+            color: #1264d6;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            color: #102a56;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #1264d6;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            color: #566176;
+            max-width: 650px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .primary-btn {
+            background: #1264d6;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #0d4fae;
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #1264d6;
+            border: 1px solid #cdd9ea;
+        }
+
+        .secondary-btn:hover {
+            background: #f0f6ff;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 18px 50px rgba(25, 57, 100, 0.12);
+            border: 1px solid #e4eaf3;
+        }
+
+        .hero-card h3 {
+            color: #102a56;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .hero-check {
+            display: flex;
+            gap: 12px;
+            margin: 14px 0;
+            color: #46536a;
+        }
+
+        .check {
+            width: 25px;
+            height: 25px;
+            background: #e8f7ee;
+            color: #159447;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 45px;
+        }
+
+        .section-title .small-title {
+            color: #1264d6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 9px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #102a56;
+            margin-bottom: 13px;
+        }
+
+        .section-title p {
+            color: #69758a;
+        }
+
+        /* ================= WHO IS THIS FOR ================= */
+
+        .audience {
+            background: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .audience-card {
+            background: #f7f9fc;
+            border: 1px solid #e5eaf1;
+            padding: 24px 17px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .audience-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .audience-card h3 {
+            font-size: 16px;
+            color: #172c4e;
+            margin-bottom: 6px;
+        }
+
+        .audience-card p {
+            font-size: 13px;
+            color: #6c7789;
+        }
+
+        /* ================= WHAT YOU LEARN ================= */
+
+        .learn {
+            background: #f7f9fc;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .module-card {
+            background: white;
+            border: 1px solid #e1e7ef;
+            border-radius: 17px;
+            padding: 28px;
+            box-shadow: 0 8px 25px rgba(25, 50, 90, 0.05);
+        }
+
+        .module-number {
+            width: 42px;
+            height: 42px;
+            background: #e8f1ff;
+            color: #1264d6;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .module-card h3 {
+            color: #102a56;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .module-card ul {
+            list-style: none;
+        }
+
+        .module-card li {
+            padding: 6px 0;
+            color: #5c687c;
+            font-size: 14px;
+        }
+
+        .module-card li::before {
+            content: "✓";
+            color: #159447;
+            font-weight: bold;
+            margin-right: 9px;
+        }
+
+        /* ================= LEARNING PROCESS ================= */
+
+        .process {
+            background: white;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            position: relative;
+            background: #f7f9fc;
+            padding: 25px 18px;
+            border-radius: 15px;
+            border: 1px solid #e4e9f0;
+            text-align: center;
+        }
+
+        .process-number {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #1264d6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .process-card h3 {
+            color: #173157;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            color: #69758a;
+            font-size: 13px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            background: #102a56;
+            color: white;
+        }
+
+        .skills .section-title h2,
+        .skills .section-title p {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 19px;
+            border-radius: 11px;
+            display: flex;
+            gap: 11px;
+            align-items: center;
+        }
+
+        .skill-item span {
+            color: #8ec0ff;
+            font-size: 20px;
+        }
+
+        /* ================= COURSE JOURNEY ================= */
+
+        .journey {
+            background: #f7f9fc;
+        }
+
+        .journey-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .journey-step:last-child {
+            border-bottom: none;
+        }
+
+        .journey-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eaf2ff;
+            color: #1264d6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .journey-step h3 {
+            color: #173157;
+            font-size: 17px;
+        }
+
+        .journey-step p {
+            color: #69758a;
+            font-size: 14px;
+        }
+
+        /* ================= WHAT YOU GET ================= */
+
+        .get {
+            background: white;
+        }
+
+        .get-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .get-card {
+            padding: 25px;
+            border: 1px solid #e3e8ef;
+            border-radius: 15px;
+            background: #fff;
+        }
+
+        .get-card .get-icon {
+            font-size: 30px;
+            margin-bottom: 13px;
+        }
+
+        .get-card h3 {
+            color: #173157;
+            margin-bottom: 7px;
+            font-size: 18px;
+        }
+
+        .get-card p {
+            color: #69758a;
+            font-size: 14px;
+        }
+
+        /* ================= PRACTICAL ================= */
+
+        .practical {
+            background: #f7f9fc;
+        }
+
+        .practical-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .practical-content h2 {
+            font-size: 36px;
+            color: #102a56;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .practical-content p {
+            color: #68758a;
+            margin-bottom: 20px;
+        }
+
+        .practical-list {
+            list-style: none;
+        }
+
+        .practical-list li {
+            padding: 9px 0;
+            color: #46536a;
+        }
+
+        .practical-list li::before {
+            content: "✓";
+            color: #159447;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .workflow {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid #e2e7ee;
+        }
+
+        .workflow-title {
+            font-weight: 800;
+            color: #173157;
+            margin-bottom: 20px;
+        }
+
+        .workflow-item {
+            background: #f5f8fc;
+            padding: 13px;
+            margin: 9px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #42506a;
+        }
+
+        /* ================= BBS & COSTING ================= */
+        .tool-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+        .tool-card { background:white; border:1px solid #e1e7ef; border-radius:17px; padding:28px; box-shadow:0 8px 25px rgba(25,50,90,.05); }
+        .tool-card h3 { color:#102a56; font-size:23px; margin-bottom:10px; }
+        .tool-card p { color:#69758a; font-size:14px; margin-bottom:15px; }
+        .tool-list { list-style:none; }
+        .tool-list li { padding:7px 0; color:#536176; font-size:14px; }
+        .tool-list li::before { content:"✓"; color:#159447; font-weight:bold; margin-right:9px; }
+        .calculator-box { margin-top:18px; overflow-x:auto; }
+        .calc-table { width:100%; border-collapse:collapse; font-size:13px; }
+        .calc-table th { background:#102a56; color:white; padding:9px; text-align:left; }
+        .calc-table td { border:1px solid #e3e8ef; padding:7px; }
+        .calc-table input { width:100%; padding:7px; border:1px solid #ccd6e5; border-radius:5px; }
+        .calc-total { text-align:right; font-weight:800; color:#102a56; padding:12px 0; }
+        .material-breakdown { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:15px; }
+        .material-box { background:#f5f8fc; border:1px solid #e2e8ef; border-radius:10px; padding:13px; }
+        .material-box strong { color:#173157; display:block; margin-bottom:4px; }
+        .tool-note { background:#eaf2ff; border-left:4px solid #1264d6; padding:12px 14px; border-radius:7px; color:#42506a; font-size:13px; margin-top:15px; }
+        @media (max-width:900px){ .tool-grid{grid-template-columns:1fr;} }
+        @media (max-width:650px){ .material-breakdown{grid-template-columns:1fr;} }
+
+        /* ================= FAQ ================= */
+
+        .faq {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        details {
+            border: 1px solid #e2e7ee;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #173157;
+        }
+
+        details p {
+            margin-top: 12px;
+            color: #68758a;
+            font-size: 14px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: linear-gradient(135deg, #1264d6, #0c397d);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 13px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: auto auto 25px;
+            color: #dceaff;
+        }
+
+        .cta .primary-btn {
+            background: white;
+            color: #1264d6;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #0b1830;
+            color: #aebbd0;
+            padding: 40px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        footer a {
+            display: block;
+            color: #aebbd0;
+            margin: 7px 0;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .practical-box {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid,
+            .get-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .module-grid,
+            .audience-grid,
+            .process-grid,
+            .skills-grid,
+            .get-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="container navbar">
+
+        <a href="index.html" class="brand">
+
+            <!-- Change logo.png if your logo has another filename -->
+            <img src="logo.png" alt="Up Skill Civil Engineer Logo">
+
+            <span>Up Skill Civil Engineer</span>
+
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#curriculum">Curriculum</a>
+            <a href="#learning">How You Learn</a>
+            <a href="#faq">FAQ</a>
+            <a href="#enroll" class="nav-button">Start Learning</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge">
+                PLANNING ENGINEER TRAINING
+            </div>
+
+            <h1>
+                Master MS Project &amp;
+                <span>Construction Planning</span>
+            </h1>
+
+            <p class="hero-text">
+                Learn practical project scheduling, baseline management,
+                progress tracking, S-Curve, reporting and the essential
+                skills required to work as a Planning Engineer.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#curriculum" class="primary-btn">
+                    Explore Course
+                </a>
+
+                <a href="#learning" class="secondary-btn">
+                    See How You Learn
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <h3>What this course focuses on</h3>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>MS Project from fundamentals to practical project planning</div>
+            </div>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>Construction scheduling and activity relationships</div>
+            </div>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>Baseline and planned vs actual progress</div>
+            </div>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>S-Curve and project progress monitoring</div>
+            </div>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>BBS Calculator and practical quantity extraction</div>
+            </div>
+
+            <div class="hero-check">
+                <div class="check">✓</div>
+                <div>Costing &amp; Estimation with material-wise quantity and rates</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHO IS THIS FOR ================= -->
+
+<section class="audience">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                WHO IS THIS COURSE FOR?
+            </div>
+
+            <h2>
+                Built for Civil Engineers
+            </h2>
+
+            <p>
+                Whether you are starting your career or moving from site
+                execution toward planning, this course focuses on practical skills.
+            </p>
+
+        </div>
+
+
+        <div class="audience-grid">
+
+            <div class="audience-card">
+                <div class="audience-icon">👷</div>
+                <h3>Site Engineers</h3>
+                <p>Move from site execution toward planning responsibilities.</p>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-icon">📊</div>
+                <h3>Billing Engineers</h3>
+                <p>Add project planning and progress monitoring skills.</p>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-icon">🎓</div>
+                <h3>Civil Students</h3>
+                <p>Build practical software and project planning knowledge.</p>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-icon">💼</div>
+                <h3>Working Engineers</h3>
+                <p>Improve planning, scheduling and reporting capabilities.</p>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-icon">🚀</div>
+                <h3>Aspiring Planners</h3>
+                <p>Prepare for Planning Engineer responsibilities and interviews.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CURRICULUM ================= -->
+
+<section class="learn" id="curriculum">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                COURSE CURRICULUM
+            </div>
+
+            <h2>
+                What You Will Learn
+            </h2>
+
+            <p>
+                The course takes you from the fundamentals of MS Project
+                to practical construction planning and progress monitoring.
+            </p>
+
+        </div>
+
+
+        <div class="module-grid">
+
+
+            <!-- MODULE 01 -->
+
+            <div class="module-card">
+
+                <div class="module-number">01</div>
+
+                <h3>MS Project Fundamentals</h3>
+
+                <ul>
+                    <li>Understanding the MS Project interface</li>
+                    <li>Creating a new project</li>
+                    <li>Project start date and calendars</li>
+                    <li>Creating activities</li>
+                    <li>Activity durations</li>
+                    <li>Milestones</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MODULE 02 -->
+
+            <div class="module-card">
+
+                <div class="module-number">02</div>
+
+                <h3>Project Scheduling</h3>
+
+                <ul>
+                    <li>Work Breakdown Structure (WBS)</li>
+                    <li>Activity sequencing</li>
+                    <li>FS, SS, FF and SF relationships</li>
+                    <li>Leads and lags</li>
+                    <li>Constraints</li>
+                    <li>Construction activity planning</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MODULE 03 -->
+
+            <div class="module-card">
+
+                <div class="module-number">03</div>
+
+                <h3>Baseline &amp; Critical Path</h3>
+
+                <ul>
+                    <li>Creating a project baseline</li>
+                    <li>Understanding planned dates</li>
+                    <li>Critical Path Method</li>
+                    <li>Total Float</li>
+                    <li>Identifying critical activities</li>
+                    <li>Monitoring schedule performance</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MODULE 04 -->
+
+            <div class="module-card">
+
+                <div class="module-number">04</div>
+
+                <h3>Progress Updating</h3>
+
+                <ul>
+                    <li>Actual Start and Actual Finish</li>
+                    <li>Updating activity progress</li>
+                    <li>Percentage complete</li>
+                    <li>Planned vs Actual progress</li>
+                    <li>Tracking delays</li>
+                    <li>Forecasting project completion</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MODULE 05 -->
+
+            <div class="module-card">
+
+                <div class="module-number">05</div>
+
+                <h3>S-Curve &amp; Progress Monitoring</h3>
+
+                <ul>
+                    <li>Understanding S-Curve</li>
+                    <li>Planned progress</li>
+                    <li>Actual progress</li>
+                    <li>Progress comparison</li>
+                    <li>Excel-based progress analysis</li>
+                    <li>Project performance monitoring</li>
+                </ul>
+
+            </div>
+
+
+            <!-- MODULE 06 -->
+
+            <div class="module-card">
+
+                <div class="module-number">06</div>
+
+                <h3>Planning Engineer Job Skills</h3>
+
+                <ul>
+                    <li>Planning Engineer responsibilities</li>
+                    <li>Daily, weekly and monthly reporting</li>
+                    <li>Look-ahead programme</li>
+                    <li>Professional planning terminology</li>
+                    <li>Planning Engineer CV guidance</li>
+                    <li>Interview preparation</li>
+                </ul>
+
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">07</div>
+                <h3>BBS Calculator &amp; Reinforcement Quantity</h3>
+                <ul>
+                    <li>Bar diameter, spacing, length and quantity</li>
+                    <li>Bar cutting length and weight calculation</li>
+                    <li>Bar-wise BBS preparation</li>
+                    <li>Steel quantity extraction from drawings</li>
+                    <li>Practical BBS calculator format</li>
+                    <li>Checking total reinforcement quantity</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">08</div>
+                <h3>Costing &amp; Estimation</h3>
+                <ul>
+                    <li>Quantity take-off from drawings and BOQ</li>
+                    <li>Concrete quantity with cement, sand and aggregate</li>
+                    <li>Brickwork quantity with cement, sand and bricks</li>
+                    <li>Plaster and other finishing material quantities</li>
+                    <li>Item-wise rate entry and amount calculation</li>
+                    <li>Material-wise costing and total project cost</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW YOU LEARN ================= -->
+
+<section class="process" id="learning">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                LEARNING METHOD
+            </div>
+
+            <h2>
+                Learn → Practice → Apply
+            </h2>
+
+            <p>
+                The objective is not just to watch lessons.
+                You learn the workflow and practice how planning work is performed.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <div class="process-number">1</div>
+
+                <h3>Learn</h3>
+
+                <p>
+                    Understand the concept through simple,
+                    step-by-step lessons.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">2</div>
+
+                <h3>Practice</h3>
+
+                <p>
+                    Follow the same process and practice
+                    using MS Project.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">3</div>
+
+                <h3>Build</h3>
+
+                <p>
+                    Create schedules and organize
+                    construction activities.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">4</div>
+
+                <h3>Track</h3>
+
+                <p>
+                    Update actual progress and compare
+                    it with the baseline.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">5</div>
+
+                <h3>Apply</h3>
+
+                <p>
+                    Understand how these skills are used
+                    in Planning Engineer work.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                PRACTICAL SKILLS
+            </div>
+
+            <h2>
+                Skills You Will Build
+            </h2>
+
+            <p>
+                Develop practical skills that can be used for
+                construction planning and project monitoring.
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Construction Scheduling</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>MS Project</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Baseline Management</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Critical Path</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Total Float</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Progress Updating</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Planned vs Actual</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>S-Curve</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Progress Reporting</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Look-Ahead Planning</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Planning Documentation</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Planning Engineer Interview Skills</div>
+            </div>
+            <div class="skill-item">
+                <span>✓</span>
+                <div>BBS Calculation</div>
+            </div>
+
+            <div class="skill-item">
+                <span>✓</span>
+                <div>Costing &amp; Estimation</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COURSE JOURNEY ================= -->
+
+<section class="journey">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                YOUR LEARNING JOURNEY
+            </div>
+
+            <h2>
+                From Activities to Project Planning
+            </h2>
+
+            <p>
+                Understand the complete planning workflow step by step.
+            </p>
+
+        </div>
+
+
+        <div class="journey-box">
+
+            <div class="journey-step">
+
+                <div class="journey-icon">01</div>
+
+                <div>
+                    <h3>Understand the Project</h3>
+                    <p>Learn how a construction project is broken into manageable activities.</p>
+                </div>
+
+            </div>
+
+
+            <div class="journey-step">
+
+                <div class="journey-icon">02</div>
+
+                <div>
+                    <h3>Create the WBS</h3>
+                    <p>Organize project scope into logical work packages and activities.</p>
+                </div>
+
+            </div>
+
+
+            <div class="journey-step">
+
+                <div class="journey-icon">03</div>
+
+                <div>
+                    <h3>Build the Schedule</h3>
+                    <p>Set durations, relationships, calendars and activity sequences.</p>
+                </div>
+
+            </div>
+
+
+            <div class="journey-step">
+
+                <div class="journey-icon">04</div>
+
+                <div>
+                    <h3>Set the Baseline</h3>
+                    <p>Save the approved plan so project performance can be monitored.</p>
+                </div>
+
+            </div>
+
+
+            <div class="journey-step">
+
+                <div class="journey-icon">05</div>
+
+                <div>
+                    <h3>Update Progress</h3>
+                    <p>Enter actual progress and understand planned versus actual performance.</p>
+                </div>
+
+            </div>
+
+
+            <div class="journey-step">
+
+                <div class="journey-icon">06</div>
+
+                <div>
+                    <h3>Monitor &amp; Report</h3>
+                    <p>Understand delays, progress trends, S-Curve and planning reports.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHAT YOU GET ================= -->
+
+<section class="get">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                COURSE RESOURCES
+            </div>
+
+            <h2>
+                What You Get
+            </h2>
+
+            <p>
+                Along with the lessons, the course can provide practical
+                resources to support your learning and career preparation.
+            </p>
+
+        </div>
+
+
+        <div class="get-grid">
+
+
+            <div class="get-card">
+                <div class="get-icon">🎓</div>
+                <h3>Complete Course Lessons</h3>
+                <p>
+                    Structured lessons covering MS Project and practical
+                    construction planning concepts.
+                </p>
+            </div>
+
+
+            <div class="get-card">
+                <div class="get-icon">📁</div>
+                <h3>Practical Project Files</h3>
+                <p>
+                    Practice resources and project examples to help
+                    understand the planning workflow.
+                </p>
+            </div>
+
+
+            <div class="get-card">
+                <div class="get-icon">📊</div>
+                <h3>Planning Templates</h3>
+                <p>
+                    Useful formats and templates for planning,
+                    tracking and reporting.
+                </p>
+            </div>
+
+
+            <div class="get-card">
+                <div class="get-icon">📈</div>
+                <h3>Progress Tracking</h3>
+                <p>
+                    Learn how planned and actual progress can be
+                    monitored and presented.
+                </p>
+            </div>
+
+
+            <div class="get-card">
+                <div class="get-icon">💼</div>
+                <h3>CV Improvement Guide</h3>
+                <p>
+                    Guidance for presenting planning-related skills
+                    professionally on your CV.
+                </p>
+            </div>
+
+
+            <div class="get-card">
+                <div class="get-icon">🎯</div>
+                <h3>Interview Preparation</h3>
+                <p>
+                    Planning Engineer interview questions and
+                    preparation guidance.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BBS & COSTING TOOLS ================= -->
+
+<section class="learn" id="bbs-costing">
+    <div class="container">
+        <div class="section-title">
+            <div class="small-title">PRACTICAL TOOLS</div>
+            <h2>BBS Calculator + Costing &amp; Estimation</h2>
+            <p>Learn the complete quantity-to-cost workflow used in construction estimation.</p>
+        </div>
+
+        <div class="tool-grid">
+            <div class="tool-card">
+                <h3>🧮 BBS Calculator</h3>
+                <p>Prepare a practical Bar Bending Schedule and calculate reinforcement quantities.</p>
+                <ul class="tool-list">
+                    <li>Bar mark and member identification</li>
+                    <li>Bar diameter and number of bars</li>
+                    <li>Spacing and cutting length</li>
+                    <li>Total bar length</li>
+                    <li>Unit weight and total steel weight</li>
+                    <li>Bar-wise and total reinforcement quantity</li>
+                </ul>
+                <div class="tool-note"><strong>Practical output:</strong> Take reinforcement information from drawings and convert it into a usable BBS quantity format.</div>
+            </div>
+
+            <div class="tool-card">
+                <h3>🏗️ Costing &amp; Estimation</h3>
+                <p>This covers the complete format, not just filling a quantity.</p>
+                <ul class="tool-list">
+                    <li>Item description, unit and quantity</li>
+                    <li>Rate for every work item</li>
+                    <li>Amount = Quantity × Rate</li>
+                    <li>Concrete: cement + sand + aggregate quantity</li>
+                    <li>Brickwork: cement + sand + brick quantity</li>
+                    <li>Plaster: cement + sand quantity</li>
+                    <li>Steel: reinforcement quantity and rate</li>
+                    <li>Material-wise total quantity and costing</li>
+                    <li>Grand total of the estimate</li>
+                </ul>
+                <div class="tool-note"><strong>Complete format:</strong> Quantity → Material Breakup → Rate → Amount → Total Cost. Rates can be entered or updated according to the applicable project/market rate.</div>
+            </div>
+        </div>
+
+        <div class="tool-card" style="margin-top:22px;">
+            <h3>Complete Costing Format</h3>
+            <p>Enter the work quantity and rate for each item. The amount is calculated automatically.</p>
+            <div class="calculator-box">
+                <table class="calc-table">
+                    <thead><tr><th>Work Item</th><th>Unit</th><th>Quantity</th><th>Rate</th><th>Amount</th></tr></thead>
+                    <tbody>
+                        <tr><td>RCC Concrete</td><td>m³</td><td><input type="number" class="qty" value="0" min="0"></td><td><input type="number" class="rate" value="0" min="0" placeholder="Enter rate"></td><td class="amount">₹0.00</td></tr>
+                        <tr><td>Brickwork</td><td>m³</td><td><input type="number" class="qty" value="0" min="0"></td><td><input type="number" class="rate" value="0" min="0" placeholder="Enter rate"></td><td class="amount">₹0.00</td></tr>
+                        <tr><td>Plaster</td><td>m²</td><td><input type="number" class="qty" value="0" min="0"></td><td><input type="number" class="rate" value="0" min="0" placeholder="Enter rate"></td><td class="amount">₹0.00</td></tr>
+                        <tr><td>Reinforcement Steel</td><td>MT</td><td><input type="number" class="qty" value="0" min="0"></td><td><input type="number" class="rate" value="0" min="0" placeholder="Enter rate"></td><td class="amount">₹0.00</td></tr>
+                    </tbody>
+                </table>
+                <div class="calc-total">Grand Total: <span id="grandTotal">₹0.00</span></div>
+            </div>
+
+            <div class="material-breakdown">
+                <div class="material-box"><strong>Concrete Material Quantity</strong>Cement: Concrete quantity × cement factor<br>Sand: Concrete quantity × sand factor<br>Aggregate: Concrete quantity × aggregate factor</div>
+                <div class="material-box"><strong>Brickwork Material Quantity</strong>Cement: Brickwork quantity × cement factor<br>Sand: Brickwork quantity × sand factor<br>Bricks: Brickwork quantity × brick consumption</div>
+                <div class="material-box"><strong>Plaster Material Quantity</strong>Cement: Plaster quantity × cement factor<br>Sand: Plaster quantity × sand factor</div>
+                <div class="material-box"><strong>Final Costing</strong>Work quantity → material quantity → rate → amount → subtotal → grand total</div>
+            </div>
+
+            <div class="tool-note"><strong>Important:</strong> Actual rates and material consumption factors vary by project specification, mix design, drawing, BOQ and applicable schedule of rates. The course teaches the complete format and quantity extraction; project-specific rates/factors are entered from the relevant documents.</div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll(".calc-table tbody tr");
+    const total = document.getElementById("grandTotal");
+    function updateCosting() {
+        let grand = 0;
+        rows.forEach(row => {
+            const qty = parseFloat(row.querySelector(".qty").value) || 0;
+            const rate = parseFloat(row.querySelector(".rate").value) || 0;
+            const amount = qty * rate;
+            row.querySelector(".amount").textContent = "₹" + amount.toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+            grand += amount;
+        });
+        total.textContent = "₹" + grand.toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+    }
+    document.querySelectorAll(".calc-table input").forEach(input => input.addEventListener("input", updateCosting));
+    updateCosting();
+});
+</script>
+
+<!-- ================= PRACTICAL PROJECT ================= -->
+
+<section class="practical">
+
+    <div class="container practical-box">
+
+        <div class="practical-content">
+
+            <div class="small-title">
+                PRACTICAL PROJECT APPROACH
+            </div>
+
+            <h2>
+                Learn the Workflow, Not Just the Software
+            </h2>
+
+            <p>
+                MS Project is only one part of planning. A Planning Engineer
+                also needs to understand how activities are structured,
+                scheduled, monitored and reported.
+            </p>
+
+            <ul class="practical-list">
+
+                <li>Create and organize construction activities</li>
+
+                <li>Connect activities using logical relationships</li>
+
+                <li>Establish a baseline programme</li>
+
+                <li>Update actual project progress</li>
+
+                <li>Identify schedule variance and delays</li>
+
+                <li>Prepare progress information for reporting</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="workflow">
+
+            <div class="workflow-title">
+                Typical Planning Workflow
+            </div>
+
+            <div class="workflow-item">
+                Project Scope
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Work Breakdown Structure
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Activities &amp; Durations
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Relationships &amp; Schedule
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Baseline
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Actual Progress
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Planned vs Actual
+            </div>
+
+            <div class="workflow-item">
+                ↓ &nbsp; Progress Reporting
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq" id="faq">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="small-title">
+                FREQUENTLY ASKED QUESTIONS
+            </div>
+
+            <h2>
+                Questions About the Course
+            </h2>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+            <details>
+
+                <summary>
+                    Do I need previous MS Project knowledge?
+                </summary>
+
+                <p>
+                    No. The course is structured to take learners from
+                    the fundamentals toward practical project planning.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Is this course useful for Site Engineers?
+                </summary>
+
+                <p>
+                    Yes. Site Engineers who want to understand project
+                    planning, scheduling and progress monitoring can
+                    use the course to build these skills.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Is the course only about MS Project?
+                </summary>
+
+                <p>
+                    MS Project is a major part of the course, but the
+                    learning also focuses on construction scheduling,
+                    baseline management, progress updating, S-Curve,
+                    reporting and Planning Engineer workflows.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Will I learn how to create a construction schedule?
+                </summary>
+
+                <p>
+                    Yes. The course covers the workflow of organizing
+                    construction activities, setting durations,
+                    establishing relationships and developing a project schedule.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Will I learn about baseline and actual progress?
+                </summary>
+
+                <p>
+                    Yes. Baseline management and planned-versus-actual
+                    progress are important parts of the course.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Is this suitable for civil engineering students?
+                </summary>
+
+                <p>
+                    Yes. Students can use the course to gain practical
+                    exposure to MS Project and construction planning
+                    concepts before entering the industry.
+                </p>
+
+            </details>
+
+
+            <details>
+                <summary>Will I learn BBS Calculator and Costing &amp; Estimation?</summary>
+                <p>Yes. The course includes practical BBS calculation and a complete costing and estimation workflow covering quantity extraction, material-wise quantities, item-wise rates, amount calculation and total costing. Examples include cement, sand and aggregate for concrete, and cement, sand and bricks for brickwork.</p>
+            </details>
+
+            <details>
+
+                <summary>
+                    Will this course guarantee a Planning Engineer job?
+                </summary>
+
+                <p>
+                    No course can guarantee employment. The purpose of
+                    this training is to help you develop practical
+                    planning skills and prepare more effectively for
+                    planning-related roles and interviews.
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta" id="enroll">
+
+    <div class="container">
+
+        <h2>
+            Ready to Build Your Planning Skills?
+        </h2>
+
+        <p>
+            Learn MS Project, understand construction planning,
+            practice project scheduling and develop practical
+            Planning Engineer skills.
+        </p>
+
+        <!-- Replace this link with your Razorpay/payment link -->
+        <a href="YOUR_RAZORPAY_LINK_HERE" class="primary-btn">
+            Start Learning
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>
+                    Up Skill Civil Engineer
+                </h3>
+
+                <p>
+                    Practical learning resources for civil engineers,
+                    construction planning and professional project skills.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="#curriculum">Curriculum</a>
+
+                <a href="#learning">How You Learn</a>
+
+                <a href="#faq">FAQ</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="privacy.html">Privacy Policy</a>
+
+                <a href="terms.html">Terms &amp; Conditions</a>
+
+                <a href="refund.html">Refund Policy</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Up Skill Civil Engineer. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
